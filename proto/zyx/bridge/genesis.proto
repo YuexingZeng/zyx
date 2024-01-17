@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package zyx.bridge;
+
+import "gogoproto/gogo.proto";
+import "zyx/bridge/params.proto";
+import "zyx/bridge/signer_group.proto";
+import "zyx/bridge/caller_group.proto";
+import "zyx/bridge/deposit.proto";
+import "zyx/bridge/withdraw.proto";
+
+option go_package = "zyx/x/bridge/types";
+
+// GenesisState defines the bridge module's genesis state.
+message GenesisState {
+           Params      params          = 1 [(gogoproto.nullable) = false];
+  repeated SignerGroup signerGroupList = 2 [(gogoproto.nullable) = false];
+  repeated CallerGroup callerGroupList = 3 [(gogoproto.nullable) = false];
+  repeated Deposit     depositList     = 4 [(gogoproto.nullable) = false];
+  repeated Withdraw    withdrawList    = 5 [(gogoproto.nullable) = false];
+}
+
