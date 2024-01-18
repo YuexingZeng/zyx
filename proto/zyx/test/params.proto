@@ -1,0 +1,14 @@
+syntax = "proto3";
+package zyx.test;
+
+import "gogoproto/gogo.proto";
+
+option go_package = "zyx/x/test/types";
+
+// Params defines the parameters for the module.
+message Params {
+  option (gogoproto.goproto_stringer) = false;
+  
+  string callerGroupName = 1 [(gogoproto.moretags) = "yaml:\"caller_group_name\""];
+  string signerGroupName = 2 [(gogoproto.moretags) = "yaml:\"signer_group_name\""];
+}
